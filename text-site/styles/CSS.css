@@ -1,0 +1,387 @@
+/* From Uiverse.io by GreyD097 */ 
+.tt_button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 75px;
+  border-radius: 200px;
+  border: none;
+  background: #d4dbe0;
+  cursor: pointer;
+  box-shadow:
+    0 15px 30px -12px rgba(0, 0, 0, 0.2),
+    0 40px 15px -14px rgba(0, 0, 0, 0.014),
+    0 50px 56px -37px rgba(0, 0, 0, 0.03),
+    0 -10px 15px rgba(255, 255, 255, 0.55);
+  overflow: hidden;
+  transition: 1s;
+}
+.tt_button:after {
+  content: "";
+  position: absolute;
+  z-index: 101;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 200px;
+  box-shadow:
+    inset 0 7px 6px rgba(140, 147, 152, 0.27),
+    inset 0 -4px 6px rgba(255, 255, 255, 0.51),
+    inset 0 0 10px rgba(134, 149, 161, 0.05),
+    inset 0 0 2px rgba(78, 83, 87, 0.1);
+  transition: 0.5s;
+}
+.tt_button .slider {
+  position: absolute;
+  z-index: 100;
+  transform: translateY(-50%);
+  top: 50%;
+  left: 1%;
+  width: 66.7px;
+  height: 66.7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(212, 220, 225, 0.2);
+  backdrop-filter: blur(2px);
+  border-radius: 50%;
+  box-shadow:
+    1px 5px 4px rgba(0, 0, 0, 0.07),
+    inset 0 7px 7px 6px rgba(255, 255, 255, 0.55),
+    inset -1px -1px rgba(255, 255, 255, 0.4),
+    inset 0.5px 7px 5px -6px #70848f;
+  transition: 1s all;
+}
+.tt_button .slider .icon {
+  width: 29px;
+  fill: #899298;
+  transition: 1s;
+}
+.tt_button .text-container {
+  position: absolute;
+  z-index: 99;
+  transform: translateY(-50%) translateX(-50%);
+  top: 50%;
+  left: 57%;
+  white-space: nowrap;
+  font-family: 等线, serif;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -2.7px;
+  transition: 1s;
+}
+.tt_button .text-container .word {
+  position: relative;
+  display: inline-block;
+  color: #8b9398;
+  transition: 1s;
+}
+.tt_button .text-container .word:after {
+  content: attr(data-label);
+  position: absolute;
+  left: 0;
+  color: #6a7175;
+  animation: text-come 1.5s calc(0.12s * var(--i)) infinite;
+  transition: 1s;
+}
+.tt_button .bg .moon {
+  position: absolute;
+  right: 34px;
+  top: 13px;
+  width: 22px;
+  transform: rotate(-200deg);
+  fill: rgba(0, 86, 159, 0.09);
+  animation: moon 3.4s ease-in-out infinite;
+  opacity: 0;
+  transition: 1s;
+}
+.tt_button .bg .bubble {
+  position: absolute;
+}
+.tt_button .bg .waves .box1 {
+  position: absolute;
+  z-index: 50;
+  bottom: -400%;
+  left: 10%;
+  width: 260px;
+  height: 260px;
+  border-radius: 110px;
+  background: rgba(0, 86, 159, 0.04);
+  animation: wave1 15s linear infinite;
+  transition: 1s 0.2s;
+}
+.tt_button .bg .waves .box2 {
+  position: absolute;
+  z-index: 50;
+  bottom: -420%;
+  left: 40%;
+  width: 280px;
+  height: 280px;
+  border-radius: 130px;
+  background: rgba(0, 86, 159, 0.04);
+  animation: wave1 13s linear infinite;
+  transition: 1s;
+}
+.tt_button .bg .waves .box3 {
+  position: absolute;
+  z-index: 50;
+  bottom: -500%;
+  left: -45%;
+  width: 350px;
+  height: 350px;
+  border-radius: 140px;
+  background: rgba(0, 86, 159, 0.04);
+  animation: wave1 30s linear infinite;
+  transition: 1s 0.3s;
+}
+.tt_button .bg .waves .pot {
+  transition: 1s;
+  position: absolute;
+  opacity: 0;
+  width: calc(var(--w) * 2px);
+  height: calc(var(--w) * 2px);
+  top: -10%;
+  background: rgba(247, 253, 255, 0.7);
+  border-radius: 50%;
+  animation: pot calc(1.5s * var(--w)) calc(0.3s * var(--w)) linear infinite;
+}
+.tt_button .done {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: rgba(73, 73, 73, 0.5);
+  font-size: 20px;
+  font-family: "Adam Bold", serif;
+  font-weight: bold;
+  opacity: 0;
+}
+.tt_button:hover {
+  transition: 1s;
+  filter: saturate(150%);
+}
+.tt_button:hover ~ .border {
+  transition: 1.2s;
+  transform: translateY(-50%) translateX(-50%);
+}
+.tt_button:hover:after {
+  transition: 0.5s;
+  box-shadow:
+    inset 0 6px 6px rgba(140, 147, 152, 0.25),
+    inset 0 -3px 6px rgba(255, 255, 255, 0.51),
+    inset 0 0 10px rgba(134, 149, 161, 0.05),
+    inset 0 0 2px rgba(78, 83, 87, 0.1);
+}
+.tt_button:hover .slider {
+  left: 3%;
+  transition: 1s;
+  animation: sliderInside 3.5s ease-in-out infinite;
+}
+.tt_button:hover .slider .icon {
+  animation: sliderIcon 3.5s ease-in-out infinite;
+}
+.tt_button:hover .text-container {
+  transition: 0.25s;
+}
+.tt_button:hover .text-container .word {
+  color: #7b858a;
+  animation: text-mohu 2.3s calc(0.1s * var(--i)) infinite;
+}
+.tt_button:hover .text-container .word:after {
+  animation: text-ready 1.3s calc(0.1s * var(--i)) forwards;
+}
+.tt_button:hover .bg .moon {
+  transition: 0.4s 0.5s;
+  opacity: 1;
+}
+.tt_button:hover .bg .waves .box1 {
+  bottom: -300%;
+}
+.tt_button:hover .bg .waves .box2 {
+  bottom: -310%;
+}
+.tt_button:hover .bg .waves .box3 {
+  bottom: -450%;
+}
+.tt_button:hover .bg .waves .pot {
+  opacity: 1;
+  transition: 0.7s 0.3s;
+}
+.tt_button:focus {
+  transition: 2.4s 0.2s ease-in-out;
+  filter: saturate(70%);
+}
+.tt_button:focus ~ .border {
+  transition: 2.4s 0.2s ease-in-out;
+  transform: translateY(-50%) translateX(-50%);
+}
+.tt_button:focus .text-container .word {
+  animation: text-out1 0.7s calc(0.08s * var(--i)) ease-in-out forwards;
+}
+.tt_button:focus .text-container .word:after {
+  animation: text-out2 0.7s calc(0.08s * var(--i)) ease-in-out forwards;
+}
+.tt_button:focus .slider {
+  transition: 1.8s ease-in-out;
+  left: 78%;
+  animation: ttover 0.5s 2s forwards;
+}
+.tt_button:focus .slider .icon .path {
+  transition: 1s;
+  fill: none;
+  stroke: rgba(65, 65, 65, 0.87);
+  stroke-width: 20;
+  stroke-dasharray: 3000;
+  stroke-dashoffset: 3000;
+  animation: draw 5s linear forwards;
+}
+.tt_button:focus .bg .waves .box3 {
+  left: 20%;
+  transition: 2.4s 0.2s ease-in-out;
+}
+.tt_button:focus .bg .waves .box1 {
+  left: 50%;
+  bottom: -300%;
+  transition: 2.4s 0.2s ease-in-out;
+}
+.tt_button:focus .bg .waves .box2 {
+  left: 55%;
+  bottom: -290%;
+  transition: 2.4s 0.2s ease-in-out;
+}
+.tt_button:focus .bg .waves .pot {
+  animation: ttover 0.5s 2s forwards;
+}
+.tt_button:focus .done {
+  animation: done 0.46s 2s ease-out forwards;
+}
+.border {
+  position: absolute;
+  transform: translateY(-50%) translateX(-50%);
+  z-index: -1;
+  left: 50%;
+  top: 50%;
+  width: 324px;
+  height: 79px;
+  background-image: linear-gradient(0deg, #fff, #d4dbe0);
+  border-radius: 200px;
+  transition: 1s;
+}
+@keyframes done {
+  0% {
+    transform: translateX(-50%) translateY(-5%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 0.8;
+  }
+}
+@keyframes ttover {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes text-out1 {
+  to {
+    transform: translateY(10px) translateX(10px) rotate(-180deg);
+    color: steelblue;
+    filter: blur(4px);
+    opacity: 0;
+  }
+}
+@keyframes text-out2 {
+  to {
+    transform: translateY(-10px) translateX(10px) rotate(180deg) scale(3);
+    filter: blur(2px);
+    opacity: 0;
+  }
+}
+@keyframes draw {
+  0%,
+  100% {
+    stroke-dashoffset: 3000;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes sliderIcon {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px) scale(0.98);
+  }
+}
+@keyframes sliderInside {
+  0%,
+  100% {
+    box-shadow:
+      1px 5px 4px rgba(0, 0, 0, 0.1),
+      inset 0 7px 7px 6px rgba(255, 255, 255, 0.55),
+      inset -1px -1px rgba(255, 255, 255, 0.4),
+      inset 0.5px 7px 5px -6px #70848f;
+  }
+  50% {
+    box-shadow:
+      1px 5px 4px rgba(0, 0, 0, 0.1),
+      inset 0 0 7px 6px rgba(255, 255, 255, 0.55),
+      inset -1px -1px rgba(255, 255, 255, 0.4),
+      inset 0.5px 7px 5px -6px #70848f;
+  }
+}
+@keyframes moon {
+  0%,
+  100% {
+    transform: translateY(2px) rotate(-210deg);
+  }
+  50% {
+    transform: translateY(-2px) rotate(-190deg);
+  }
+}
+@keyframes pot {
+  100% {
+    top: 100%;
+    transform: translateX(-15px);
+  }
+}
+@keyframes text-come {
+  50% {
+    color: #757c80;
+    transform: rotate(7deg);
+  }
+  0%,
+  100% {
+    color: #8e969b;
+  }
+}
+@keyframes text-ready {
+  100% {
+    opacity: 0;
+    transform: translateY(-17px) rotate(180deg);
+    filter: blur(2px);
+  }
+}
+@keyframes text-mohu {
+  50% {
+    transform: rotate(7deg) translateY(2px) scale(1.03);
+    opacity: 0.7;
+  }
+  0%,
+  100% {
+    transform: rotate(-7deg);
+  }
+}
+@keyframes wave1 {
+  50% {
+    transform: rotate(360deg);
+  }
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+}
